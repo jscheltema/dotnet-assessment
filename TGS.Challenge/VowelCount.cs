@@ -16,7 +16,28 @@ namespace TGS.Challenge
     {
         public int Count(string value)
         {
-            return -1;
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException("value is missing.");
+            }
+
+            value = value.ToLower();
+
+            int nVowel = 0;
+            var vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
+            foreach (var c in value.ToCharArray())
+            {
+                foreach (var v in vowels)
+                {
+                    if (v == c)
+                    {
+                        ++nVowel;
+                        break;
+                    }
+                }
+            }
+
+            return nVowel;
         }
     }
 }
