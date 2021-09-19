@@ -21,11 +21,9 @@ namespace TGS.Challenge
                 throw new ArgumentException("value is missing.");
             }
 
-            value = value.ToLower();
-
             int nVowel = 0;
             var vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
-            foreach (var c in value.ToCharArray())
+            foreach (var c in value.ToLower().ToCharArray())
             {
                 foreach (var v in vowels)
                 {

@@ -61,11 +61,8 @@ namespace TGS.Challenge
                 throw new ArgumentException("word2 is missing.");
             }
 
-            word1 = word1.ToLower();
-            word2 = word2.ToLower();
-
-            var word1CharCount = CreateWordCharCount(word1);
-            var word2CharCount = CreateWordCharCount(word2);
+            var word1CharCount = CreateWordCharCount(word1.ToLower());
+            var word2CharCount = CreateWordCharCount(word2.ToLower());
 
             if (word1CharCount.Count != word2CharCount.Count)
             {
