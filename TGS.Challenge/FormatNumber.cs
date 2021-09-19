@@ -26,7 +26,43 @@ namespace TGS.Challenge
     {
         public string Format(int value)
         {
-            return string.Empty;
+            if (value < 0)
+            {
+                throw new ArgumentOutOfRangeException("Negative numbers not supported.");
+            }
+
+            if (value > 1000000000)
+            {
+                throw new ArgumentOutOfRangeException("Number too large.");
+            }
+
+            if (value < 1000)
+            {
+                return value.ToString();
+            }
+
+            string resultString = string.Empty;
+
+            string valueString = value.ToString();
+            int firstCommaIndex = valueString.Length % 3;
+
+
+            if (firstCommaIndex != 0)
+            {
+                resultString = valueString.Substring(0, firstCommaIndex) + ",";
+            }
+
+            for (int j = firstCommaIndex; j < valueString.Length; j += 3)
+            {
+                resultString += valueString.Substring(j, 3);
+
+                if (j + 3 < valueString.Length)
+                {
+                    resultString += ",";
+                }
+            }
+            
+            return resultString;
         }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+
 namespace TGS.Challenge
 {
     /*
@@ -19,6 +21,11 @@ namespace TGS.Challenge
     {
         public int Find(int[] numbers)
         {
+            if (numbers.Length == 0 || numbers.Length > 100000)
+            {
+                throw new ArgumentException("Array length invald.");
+            }
+
             int total = 0;
             foreach (int n in numbers)
             {
@@ -42,7 +49,7 @@ namespace TGS.Challenge
             }
 
             return -1;
-            
+
         }
     }
 }
